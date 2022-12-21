@@ -1,26 +1,19 @@
-/* module.exports = {
-    semi: true,
-    trailingComma: 'all',
-    singleQuote: true,
-    printWidth: 120,
-    tabWidth: 4
-} */
 module.exports = {
-    arrowParens: 'always',
-    bracketSpacing: true,
-    endOfLine: 'crlf',
-    htmlWhitespaceSensitivity: 'ignore',
-    insertPragma: false,
-    jsxSingleQuote: false,
-    printWidth: 80,
-    proseWrap: 'always',
-    quoteProps: 'as-needed',
-    requirePragma: false,
-    semi: true,
-    singleQuote: true,
-    tabWidth: 4,
-    trailingComma: 'all',
-    useTabs: false,
-    vueIndentScriptAndStyle: false,
-    embeddedLanguageFormatting: 'off',
+	arrowParens: 'always',
+	bracketSpacing: true,
+	endOfLine: 'crlf',
+	htmlWhitespaceSensitivity: 'ignore',
+	insertPragma: false,
+	jsxSingleQuote: false, // Uso de aspas simples em JSX
+	proseWrap: 'always',
+	quoteProps: 'as-needed',
+	requirePragma: false,
+	semi: true, // Uso do ponto e vírgula
+	singleQuote: true, // Uso de aspas simples
+	printWidth: 120, // Tamanho máximo de uma linha
+	tabWidth: 4,
+	trailingComma: 'all', // Uso da vírgula no final de objetos e arrays
+	useTabs: true, // Uso de tabs ao invés de espaços
+	vueIndentScriptAndStyle: false,
+	embeddedLanguageFormatting: 'off',
 };
