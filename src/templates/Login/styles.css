@@ -1,0 +1,64 @@
+.LoginWrapper {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 75vw;
+    height: 100vh;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+}
+
+.LoginWrapper > * {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.LoginWrapper #illustration-typography {
+    width: min-content;
+    height: min-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+    align-items: center;
+}
+
+.LoginWrapper #login-form {
+    width: 552px;
+    height: min-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.LoginWrapper #login-form h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+
+    font-size: 56px;
+    font-weight: 700;
+    color: #3c3a36;
+
+    margin-bottom: 5px;
+}
+
+.LoginWrapper #login-form p {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #3c3a36;
+
+    cursor: pointer;
+}
