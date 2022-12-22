@@ -3,9 +3,11 @@ import P from 'prop-types';
 
 export const Button = ({ label, type, onPress, style }) => {
     return (
-        <button className="button" type={type} style={style} onClick={onPress}>
-            {label}
-        </button>
+        <div className="ButtonWrapper">
+            <button className="button" type={type} style={style} onClick={onPress}>
+                {label}
+            </button>
+        </div>
     );
 };
 
