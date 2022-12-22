@@ -1,0 +1,43 @@
+.SignUpWrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.SignUpWrapper #sign-up-form {
+    width: 552px;
+    height: min-content;
+
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.SignUpWrapper #sign-up-form #sign-up-title h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+
+    font-size: 56px;
+    font-weight: 700;
+    color: #3c3a36;
+}
+
+.SignUpWrapper #sign-up-form #sign-up-title p {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #78746d;
+
+    margin-bottom: 5px;
+}

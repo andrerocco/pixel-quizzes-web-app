@@ -12,8 +12,6 @@ import quizzesIllustration from '../../assets/illustrations/quizzes-illustration
 import { useAuth } from '../../contexts/auth';
 
 function Login() {
-    /* eslint-disable no-unused-vars */
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -25,6 +23,7 @@ function Login() {
 
     const handleLogin = (event) => {
         event.preventDefault(); // Prevents the page from reloading
+
         auth.login({ username: email, password: password });
         navigate(redirectTo, { replace: true }); // Replace: true prevents the user from going back to the login page by pressing the back button
     };
@@ -44,10 +43,10 @@ function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <PasswordInput placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                <PasswordInput placeholder="Senha" onChange={(e) => setPassword(e.target.value)} required />
                 <p>Esqueceu sua senha?</p>
                 <Button type="submit" label="Login" />
-                <p>Criar uma conta</p>
+                <p onClick={() => navigate('/signup')}>Criar uma conta</p>
             </form>
         </div>
     );
