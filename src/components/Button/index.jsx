@@ -11,7 +11,7 @@ export const Button = ({ label, type, onPress, style }) => {
 
 Button.propTypes = {
 	label: P.string.isRequired,
-	onPress: P.func.isRequired,
+	onPress: P.func,
 	style: P.object,
 	type: P.oneOf(['button', 'submit', 'reset']),
 };
