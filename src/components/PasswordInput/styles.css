@@ -1,0 +1,10 @@
+.PasswordInputWrapper {
+    position: relative;
+}
+
+.PasswordInputWrapper .VisibilityIconWrapper {
+    position: absolute;
+    right: 15px;
+    top: calc(50% + 1px);
+    transform: translateY(-50%);
+}
