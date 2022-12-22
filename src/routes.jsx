@@ -4,12 +4,12 @@ import Home from './templates/Home';
 import Login from './templates/Login';
 
 export const routes = createBrowserRouter([
-	{
-		path: '/login',
-		element: <Login />,
-	},
-	{
-		path: '/',
-		element: <Home />,
-	},
+    {
+        path: '/login',
+        element: <Login />,
+    },
+    {
+        path: '/',
+        element: <Home />,
+    },
 ]);
