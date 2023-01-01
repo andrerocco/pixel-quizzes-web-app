@@ -1,0 +1,10 @@
+.SearchFieldWrapper {
+    position: relative;
+}
+
+.SearchFieldWrapper .SearchIconWrapper {
+    position: absolute;
+    right: 15px;
+    top: calc(50% + 1px);
+    transform: translateY(-50%);
+}
