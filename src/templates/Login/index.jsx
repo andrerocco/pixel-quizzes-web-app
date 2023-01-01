@@ -30,7 +30,7 @@ function Login() {
 
     return (
         <div className="LoginWrapper">
-            <div id="illustration-typography">
+            <div id="illustration-typography" className="no-select no-drag">
                 <img src={quizzesIllustration} alt="Quizzes Illustration" id="quizzes-illustration" />
                 <img src={quizzesTypography} alt="Pixel Quizzes Typography" id="pixel-quizzes-typography" />
             </div>
@@ -44,9 +44,9 @@ function Login() {
                     required
                 />
                 <PasswordInput placeholder="Senha" onChange={(e) => setPassword(e.target.value)} required />
-                <p>Esqueceu sua senha?</p>
+                <p onClick={() => navigate('/recover-password')}>Esqueceu sua senha?</p>
                 <Button type="submit" label="Login" />
-                <p onClick={() => navigate('/signup')}>Criar uma conta</p>
+                <p onClick={() => navigate('/sign-up')}>Criar uma conta</p>
             </form>
         </div>
     );

@@ -1,0 +1,18 @@
+.RecoverPasswordWrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.RecoverPasswordWrapper #recover-password-form {
+    width: 552px;
+    height: min-content;
+
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
