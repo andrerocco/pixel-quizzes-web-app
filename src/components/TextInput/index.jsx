@@ -18,4 +18,5 @@ TextInput.propTypes = {
     type: P.string,
     placeholder: P.string,
     onChange: P.func,
+    props: P.object,
 };
