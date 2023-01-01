@@ -1,0 +1,71 @@
+.HomeWrapper {
+    width: 100vw;
+}
+
+.HomeWrapper .home-header {
+    width: auto;
+    height: 120px;
+
+    padding: 0px 148px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #bebab3;
+}
+
+.HomeWrapper .home-header button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.HomeWrapper .home-header #home-header-left p {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.5px;
+
+    color: #3c3a36;
+}
+
+.HomeWrapper .home-header #home-header-left h1 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 105%;
+    letter-spacing: -1px;
+
+    color: #3c3a36;
+}
+
+.HomeWrapper .home-header #home-header-right {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: min-content;
+    grid-template-columns: min-content min-content min-content;
+    align-content: center;
+    gap: 0px 30px;
+}
+
+.HomeWrapper .home-header #home-header-right button {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #3c3a36;
+}
