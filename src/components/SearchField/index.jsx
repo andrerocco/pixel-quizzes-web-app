@@ -2,12 +2,11 @@ import './styles.css';
 import P from 'prop-types';
 // Components
 import SearchIcon from './SearchIcon';
-import { TextInput } from '../TextInput';
 
-export const SearchField = ({ placeholder, onChange }) => {
+export const SearchField = ({ placeholder, onChange, ...props }) => {
     return (
         <div className="SearchFieldWrapper">
-            <TextInput type="text" placeholder={placeholder} onChange={onChange} />
+            <input type="text" placeholder={placeholder} onChange={onChange} {...props} />
             <SearchIcon fillColor="#3C3A36" />
         </div>
     );
@@ -16,4 +15,5 @@ export const SearchField = ({ placeholder, onChange }) => {
 SearchField.propTypes = {
     placeholder: P.string,
     onChange: P.func,
+    props: P.object,
 };
