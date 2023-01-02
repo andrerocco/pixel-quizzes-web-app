@@ -1,0 +1,7 @@
+.QuizGridWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: repeat(min-content);
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+}
