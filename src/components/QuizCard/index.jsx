@@ -1,9 +1,9 @@
 import './styles.css';
 import P from 'prop-types';
 
-export const QuizCard = ({ cardImage, difficulty, title, description }) => {
+export const QuizCard = ({ cardImage, difficulty, title, description, onClick, hoverCursor }) => {
     return (
-        <div className="QuizCardWrapper">
+        <div className="QuizCardWrapper" onClick={onClick} style={{ cursor: hoverCursor }}>
             <div className="card-image" style={{ backgroundImage: `url(${cardImage})` }}>
                 <h6 className="quiz-difficulty">{difficulty.toUpperCase()}</h6>
             </div>
@@ -20,4 +20,6 @@ QuizCard.propTypes = {
     difficulty: P.string.isRequired,
     title: P.string.isRequired,
     description: P.string,
+    onClick: P.func,
+    hoverCursor: P.string,
 };
