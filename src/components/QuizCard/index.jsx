@@ -1,18 +1,23 @@
 import './styles.css';
 import P from 'prop-types';
 
-const QuizCard = ({ cardImage }) => {
+export const QuizCard = ({ cardImage, difficulty, title, description }) => {
     return (
         <div className="QuizCardWrapper">
-            <img src={cardImage} />
-            <h2>Title</h2>
-            <p>Subtitle</p>
+            <div className="card-image" style={{ backgroundImage: `url(${cardImage})` }}>
+                <h6 className="quiz-difficulty">{difficulty.toUpperCase()}</h6>
+            </div>
+            <div className="card-information">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
         </div>
     );
 };
 
 QuizCard.propTypes = {
     cardImage: P.string.isRequired,
+    difficulty: P.string.isRequired,
+    title: P.string.isRequired,
+    description: P.string,
 };
-
-export default QuizCard;
