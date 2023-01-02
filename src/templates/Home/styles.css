@@ -2,7 +2,7 @@
     width: 100vw;
 }
 
-.HomeWrapper .home-header {
+.HomeWrapper #home-header {
     width: auto;
     height: 120px;
 
@@ -15,7 +15,7 @@
     border-bottom: 1px solid #bebab3;
 }
 
-.HomeWrapper .home-header button {
+.HomeWrapper #home-header button {
     background: none;
     color: inherit;
     border: none;
@@ -25,7 +25,7 @@
     outline: inherit;
 }
 
-.HomeWrapper .home-header #home-header-left p {
+.HomeWrapper #home-header #home-header-left p {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
@@ -40,7 +40,7 @@
     color: #3c3a36;
 }
 
-.HomeWrapper .home-header #home-header-left h1 {
+.HomeWrapper #home-header #home-header-left h1 {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 700;
@@ -51,7 +51,7 @@
     color: #3c3a36;
 }
 
-.HomeWrapper .home-header #home-header-right {
+.HomeWrapper #home-header #home-header-right {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: min-content;
@@ -60,7 +60,7 @@
     gap: 0px 30px;
 }
 
-.HomeWrapper .home-header #home-header-right button {
+.HomeWrapper #home-header #home-header-right button {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
@@ -68,4 +68,14 @@
     line-height: 21px;
 
     color: #3c3a36;
+}
+
+.HomeWrapper #home-content {
+    width: min-content;
+    height: min-content;
+
+    margin: 48px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }

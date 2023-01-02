@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 // Components
 import { SearchField } from '../../components/SearchField';
+import { QuizGrid } from '../../components/QuizGrid';
 
 function Home() {
     /* eslint-disable no-unused-vars */
@@ -33,10 +34,10 @@ function Home() {
 
     return (
         <div className="HomeWrapper">
-            <div className="home-header">
+            <div id="home-header">
                 <div id="home-header-left">
                     <p>Olá,</p>
-                    <h1>userName</h1>
+                    <h1>{user.name}</h1>
                 </div>
                 <div id="home-header-right">
                     <button type="button">Histórico</button>
@@ -47,6 +48,10 @@ function Home() {
                         onChange={(e) => console.log(e.target.value)}
                     />
                 </div>
+            </div>
+            <div id="home-content">
+                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
+                {quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
             </div>
         </div>
     );

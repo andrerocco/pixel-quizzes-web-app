@@ -14,6 +14,7 @@ export const QuizGrid = ({ quizzes }) => {
                         difficulty={quiz.difficulty}
                         title={quiz.title}
                         description={quiz.short_description}
+                        hoverCursor="pointer"
                     />
                 );
             })}
