@@ -1,0 +1,30 @@
+.DropdownItemWrapper {
+    width: calc(100% - 10px);
+    height: 100%;
+    padding: 10px 5px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DropdownItemWrapper + .DropdownItemWrapper {
+    border-top: 1px solid #bebab3;
+}
+
+.DropdownItemWrapper img {
+    max-width: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.DropdownItemWrapper a {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+}
