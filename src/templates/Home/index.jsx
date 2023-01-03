@@ -5,6 +5,8 @@ import axios from 'axios';
 import { SearchField } from '../../components/SearchField';
 import { QuizGrid } from '../../components/QuizGrid';
 import { WelcomeTitle } from '../../components/WelcomeTitle';
+import { DropdownButton } from '../../components/Dropdown/DropdownButton';
+import { DropdownItem } from '../../components/Dropdown/DropdownItem';
 
 function Home() {
     /* eslint-disable no-unused-vars */
@@ -33,6 +35,10 @@ function Home() {
         })(); // Fetches all posts and sets it to the posts state
     }, []);
 
+    function handleFilterClick(value) {
+        console.log(value);
+    }
+
     return (
         <div className="HomeWrapper">
             <div id="home-header">
@@ -41,7 +47,12 @@ function Home() {
                 </div>
                 <div id="home-header-right">
                     <button type="button">Histórico</button>
-                    <button type="button">Temas</button>
+                    <DropdownButton label={'Temas'}>
+                        <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#HTML</DropdownItem>
+                        <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#UX</DropdownItem>
+                        <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#Swift</DropdownItem>
+                        <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#UI</DropdownItem>
+                    </DropdownButton>
                     <SearchField
                         placeholder="Pesquisar quiz"
                         style={{ width: '404px' }}
