@@ -11,6 +11,8 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+
+    margin: 5px 0;
 }
 
 .DropdownButtonWrapper ul {
