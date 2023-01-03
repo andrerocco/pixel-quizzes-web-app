@@ -1,9 +1,9 @@
 import './styles.css';
 import P from 'prop-types';
 
-export const DropdownItem = ({ onClick, imgSrc, children }) => {
+export const DropdownItem = ({ onClick, name, imgSrc, children }) => {
     return (
-        <div className="DropdownItemWrapper" onClick={onClick}>
+        <div className="DropdownItemWrapper" onClick={onClick} name={name}>
             {imgSrc && <img src={imgSrc}></img>}
             <a>{children}</a>
         </div>
@@ -12,6 +12,7 @@ export const DropdownItem = ({ onClick, imgSrc, children }) => {
 
 DropdownItem.propTypes = {
     onClick: P.func,
+    name: P.string,
     imgSrc: P.string,
     children: P.string.isRequired,
 };
