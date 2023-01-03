@@ -4,6 +4,7 @@ import axios from 'axios';
 // Components
 import { SearchField } from '../../components/SearchField';
 import { QuizGrid } from '../../components/QuizGrid';
+import { WelcomeTitle } from '../../components/WelcomeTitle';
 
 function Home() {
     /* eslint-disable no-unused-vars */
@@ -36,8 +37,7 @@ function Home() {
         <div className="HomeWrapper">
             <div id="home-header">
                 <div id="home-header-left">
-                    <p>Olá,</p>
-                    <h1>{user.name}</h1>
+                    <WelcomeTitle greeting={'Olá,'}>{user.name}</WelcomeTitle>
                 </div>
                 <div id="home-header-right">
                     <button type="button">Histórico</button>
