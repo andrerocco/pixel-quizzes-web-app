@@ -2,7 +2,7 @@
     width: 100vw;
 }
 
-.HomeWrapper #home-header {
+.HomeWrapper #home-navbar {
     width: auto;
     height: 120px;
 
@@ -15,7 +15,7 @@
     border-bottom: 1px solid #bebab3;
 }
 
-.HomeWrapper #home-header button {
+.HomeWrapper #home-navbar button {
     background: none;
     color: inherit;
     border: none;
@@ -25,7 +25,7 @@
     outline: inherit;
 }
 
-.HomeWrapper #home-header #home-header-right {
+.HomeWrapper #home-navbar #home-navbar-right {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: min-content;
@@ -34,7 +34,7 @@
     gap: 0px 30px;
 }
 
-.HomeWrapper #home-header #home-header-right button {
+.HomeWrapper #home-navbar #home-navbar-right button {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;

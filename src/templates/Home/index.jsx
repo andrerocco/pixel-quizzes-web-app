@@ -41,11 +41,11 @@ function Home() {
 
     return (
         <div className="HomeWrapper">
-            <div id="home-header">
-                <div id="home-header-left">
+            <nav id="home-navbar">
+                <div id="home-navbar-left">
                     <WelcomeTitle greeting={'Olá,'}>{user.name}</WelcomeTitle>
                 </div>
-                <div id="home-header-right">
+                <div id="home-navbar-right">
                     <button type="button">Histórico</button>
                     <DropdownButton label={'Temas'}>
                         <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#HTML</DropdownItem>
@@ -59,7 +59,7 @@ function Home() {
                         onChange={(e) => console.log(e.target.value)}
                     />
                 </div>
-            </div>
+            </nav>
             <div id="home-content">
                 {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
                 {quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
