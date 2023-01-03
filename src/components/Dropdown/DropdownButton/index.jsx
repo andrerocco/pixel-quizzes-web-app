@@ -12,5 +12,5 @@ export const DropdownButton = ({ label, children }) => {
 
 DropdownButton.propTypes = {
     label: P.string,
-    children: P.element,
+    children: P.array,
 };
