@@ -7,6 +7,7 @@ import { QuizGrid } from '../../components/QuizGrid';
 import { WelcomeTitle } from '../../components/WelcomeTitle';
 import { DropdownButton } from '../../components/Dropdown/DropdownButton';
 import { DropdownItem } from '../../components/Dropdown/DropdownItem';
+import { LoadingBlock } from '../../components/LoadingBlock';
 
 function Home() {
     /* eslint-disable no-unused-vars */
@@ -35,17 +36,6 @@ function Home() {
             setLoading(false); // Sets the loading state to false when the data is fetched
         };
         fetchData();
-
-        /* (async () => {
-            await fetchUser().then((response) => {
-                setUser(response.data);
-            });
-        })(); // Fetches the user data and sets it to the user state
-        (async () => {
-            await fetchAllQuizzes().then((response) => {
-                setQuizzes(response.data);
-            });
-        })(); // Fetches all posts and sets it to the posts state */
     }, []);
 
     function handleFilterClick(value) {
@@ -73,11 +63,10 @@ function Home() {
                     />
                 </div>
             </nav>
-            <div id="home-content">
-                {isLoading && <p>Carregando...</p>}
-                {!isLoading && quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
-                {!isLoading && quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
-            </div>
+            <LoadingBlock isLoading={isLoading} id="home-content">
+                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
+                {quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
+            </LoadingBlock>
         </div>
     );
 }
