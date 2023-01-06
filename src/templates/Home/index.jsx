@@ -29,8 +29,8 @@ function Home() {
             setLoading(true); // Sets the loading state to true before fetching the data
 
             const userResponse = await fetchUser();
-            const quizzesResponse = await fetchAllQuizzes();
             setUser(userResponse.data);
+            const quizzesResponse = await fetchAllQuizzes();
             setQuizzes(quizzesResponse.data);
 
             setLoading(false); // Sets the loading state to false when the data is fetched
@@ -63,7 +63,7 @@ function Home() {
                     />
                 </div>
             </nav>
-            <LoadingBlock isLoading={isLoading} id="home-content">
+            <LoadingBlock loadingStatus={isLoading} id="home-content">
                 {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
                 {quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
             </LoadingBlock>
