@@ -13,6 +13,7 @@ function Home() {
 
     const [user, setUser] = useState({});
     const [quizzes, setQuizzes] = useState([]);
+    const [isLoading, setLoading] = useState(true);
 
     function fetchUser() {
         return axios.get('https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/profile');
@@ -23,16 +24,13 @@ function Home() {
     }
 
     useEffect(() => {
-        (async () => {
-            await fetchUser().then((response) => {
-                setUser(response.data);
-            });
-        })(); // Fetches the user data and sets it to the user state
-        (async () => {
-            await fetchAllQuizzes().then((response) => {
-                setQuizzes(response.data);
-            });
-        })(); // Fetches all posts and sets it to the posts state
+        const fetchData = async () => {
+            const userData = await fetchUser();
+            const quizzesData = await fetchAllQuizzes();
+            console.log(userData);
+            console.log(quizzesData);
+        };
+        fetchData();
     }, []);
 
     function handleFilterClick(value) {
