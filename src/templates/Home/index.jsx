@@ -25,12 +25,27 @@ function Home() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const userData = await fetchUser();
-            const quizzesData = await fetchAllQuizzes();
-            console.log(userData);
-            console.log(quizzesData);
+            setLoading(true); // Sets the loading state to true before fetching the data
+
+            const userResponse = await fetchUser();
+            const quizzesResponse = await fetchAllQuizzes();
+            setUser(userResponse.data);
+            setQuizzes(quizzesResponse.data);
+
+            setLoading(false); // Sets the loading state to false when the data is fetched
         };
         fetchData();
+
+        /* (async () => {
+            await fetchUser().then((response) => {
+                setUser(response.data);
+            });
+        })(); // Fetches the user data and sets it to the user state
+        (async () => {
+            await fetchAllQuizzes().then((response) => {
+                setQuizzes(response.data);
+            });
+        })(); // Fetches all posts and sets it to the posts state */
     }, []);
 
     function handleFilterClick(value) {
@@ -59,8 +74,9 @@ function Home() {
                 </div>
             </nav>
             <div id="home-content">
-                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
-                {quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
+                {isLoading && <p>Carregando...</p>}
+                {!isLoading && quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
+                {!isLoading && quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
             </div>
         </div>
     );
