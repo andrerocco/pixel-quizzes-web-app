@@ -1,0 +1,9 @@
+.LoadingIconWrapper img {
+    width: 40px;
+    height: 40px;
+    margin-top: 50px;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
