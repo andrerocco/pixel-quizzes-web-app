@@ -37,7 +37,7 @@ function Home() {
             );
             setUser(userResponse.data);
             const quizzesResponse = await axios.get(
-                'https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes',
+                'https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?is_answered=false',
             );
             setAllQuizzes(quizzesResponse.data);
             setQuizzes(quizzesResponse.data);
