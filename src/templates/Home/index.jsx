@@ -73,6 +73,11 @@ function Home() {
         setSearchValue(value.replace('#', ''));
     }
 
+    function handleQuizClick(id) {
+        console.log(id);
+        navigate(`/quiz/details/${id}`);
+    }
+
     return (
         <div className="HomeWrapper">
             <nav id="header-navbar">
@@ -98,7 +103,7 @@ function Home() {
                 </div>
             </nav>
             <LoadingBlock loadingStatus={isLoading} id="home-content">
-                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
+                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} onQuizClick={(id) => handleQuizClick(id)} />}
                 {quizzes.length <= 0 && (
                     <QuizNotFound message="Quiz não encontrado">
                         Não encontramos nenhum quiz. Tente procurar usando palavras chaves diferentes...
