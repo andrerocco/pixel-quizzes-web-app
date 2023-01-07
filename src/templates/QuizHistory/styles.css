@@ -1,0 +1,30 @@
+.QuizHistoryWrapper #header-navbar #navbar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0px 24px;
+}
+
+.QuizHistoryWrapper #header-navbar #navbar-left h1 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 105%;
+
+    color: #3c3a36;
+}
+
+.QuizHistoryWrapper #header-navbar #navbar-left img {
+    cursor: pointer;
+}
+
+.QuizHistoryWrapper .page-content {
+    width: min-content;
+    height: auto;
+
+    margin: 48px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
