@@ -3,11 +3,11 @@ import P from 'prop-types';
 // Assets
 import previousButton from './PreviousIcon/previous-button.svg';
 
-export const PreviousButton = ({ onClick, buttonSrc, imgAltText }) => {
+export const PreviousButton = ({ id, className, onClick, buttonSrc, imgAltText, ...props }) => {
     return (
-        <a className="PreviousButtonWrapper" onClick={onClick}>
+        <a id={id} className={`PreviousButtonWrapper ` + className} onClick={onClick} {...props}>
             <img
-                className="previous-icon"
+                className="previous-icon no-drag"
                 src={buttonSrc ? buttonSrc : previousButton}
                 alt={imgAltText ? imgAltText : 'Go back'}
             />
@@ -16,6 +16,8 @@ export const PreviousButton = ({ onClick, buttonSrc, imgAltText }) => {
 };
 
 PreviousButton.propTypes = {
+    id: P.string,
+    className: P.string,
     onClick: P.func,
     buttonSrc: P.string,
     imgAltText: P.string,

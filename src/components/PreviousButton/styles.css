@@ -1,3 +1,5 @@
 .PreviousButtonWrapper {
+    width: auto;
+    height: auto;
     cursor: pointer;
 }
