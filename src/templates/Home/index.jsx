@@ -1,6 +1,8 @@
 import './styles.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+// Hooks
+import useDebounce from '../../hooks/useDebounce';
 // Components
 import { SearchField } from '../../components/SearchField';
 import { QuizGrid } from '../../components/QuizGrid';
@@ -13,10 +15,12 @@ function Home() {
     /* eslint-disable no-unused-vars */
 
     const [user, setUser] = useState({});
+    const [allQuizzes, setAllQuizzes] = useState([]);
     const [quizzes, setQuizzes] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
     const [searchValue, setSearchValue] = useState('');
+    const debouncedSearch = useDebounce(searchValue, 500);
 
     // (ComponentDidMount)
     // Fetches the data from the API
@@ -31,6 +35,7 @@ function Home() {
             const quizzesResponse = await axios.get(
                 'https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes',
             );
+            setAllQuizzes(quizzesResponse.data);
             setQuizzes(quizzesResponse.data);
 
             setLoading(false); // Sets the loading state to false when the data is fetched
@@ -40,17 +45,25 @@ function Home() {
 
     // Filters the quizzes based on the search value
     useEffect(() => {
-        console.log(searchValue);
+        setLoading(true); // Sets the loading state to true before fetching the data
 
         async function fetchSearchResults() {
-            const searchResults = await axios.get(
-                `https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${searchValue}`,
-            );
-            setQuizzes(searchResults.data);
+            const searchResults = await axios
+                .get(`https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${debouncedSearch}`)
+                .then((response) => response.data)
+                .catch((error) => console.log(error));
+            setQuizzes(searchResults);
+
+            setLoading(false); // Sets the loading state to false when the data is fetched
         }
 
-        fetchSearchResults();
-    }, [searchValue]);
+        if (debouncedSearch) {
+            fetchSearchResults();
+        } else {
+            setQuizzes(allQuizzes);
+            setLoading(false);
+        }
+    }, [debouncedSearch, allQuizzes]);
 
     function handleFilterClick(value) {
         console.log(value);
