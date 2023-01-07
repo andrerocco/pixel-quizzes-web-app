@@ -16,21 +16,17 @@ function Home() {
     const [quizzes, setQuizzes] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
-    function fetchUser() {
-        return axios.get('https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/profile');
-    }
-
-    function fetchAllQuizzes() {
-        return axios.get('https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes');
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true); // Sets the loading state to true before fetching the data
 
-            const userResponse = await fetchUser();
+            const userResponse = await axios.get(
+                'https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/profile',
+            );
             setUser(userResponse.data);
-            const quizzesResponse = await fetchAllQuizzes();
+            const quizzesResponse = await axios.get(
+                'https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes',
+            );
             setQuizzes(quizzesResponse.data);
 
             setLoading(false); // Sets the loading state to false when the data is fetched
