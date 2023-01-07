@@ -26,3 +26,16 @@ body {
     -moz-user-drag: none;
     -o-user-drag: none;
 }
+
+#header-navbar {
+    width: auto;
+    height: 120px;
+
+    padding: 0px 148px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #bebab3;
+}

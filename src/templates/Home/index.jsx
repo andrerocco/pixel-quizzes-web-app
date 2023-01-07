@@ -72,7 +72,7 @@ function Home() {
 
     return (
         <div className="HomeWrapper">
-            <nav id="home-navbar">
+            <nav id="header-navbar">
                 <div id="home-navbar-left">
                     <WelcomeTitle greeting={'Olá,'}>{user.name}</WelcomeTitle>
                 </div>
