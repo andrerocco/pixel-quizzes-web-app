@@ -1,5 +1,6 @@
 import './styles.css';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 // Hooks
 import useDebounce from '../../hooks/useDebounce';
@@ -22,6 +23,8 @@ function Home() {
 
     const [searchValue, setSearchValue] = useState('');
     const debouncedSearch = useDebounce(searchValue, 300);
+
+    const navigate = useNavigate();
 
     // (ComponentDidMount)
     // Fetches the data from the API
@@ -77,7 +80,9 @@ function Home() {
                     <WelcomeTitle greeting={'Olá,'}>{user.name}</WelcomeTitle>
                 </div>
                 <div id="home-navbar-right">
-                    <button type="button">Histórico</button>
+                    <button type="button" onClick={() => navigate('/history')}>
+                        Histórico
+                    </button>
                     <DropdownButton label={'Temas'}>
                         <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#HTML</DropdownItem>
                         <DropdownItem onClick={(e) => handleFilterClick(e.target.innerText)}>#UX</DropdownItem>

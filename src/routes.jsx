@@ -3,6 +3,7 @@ import RequireAuth from './components/RequireAuth';
 // Páginas
 import Home from './templates/Home';
 import Login from './templates/Login';
+import QuizHistory from './templates/QuizHistory';
 import RecoverPassword from './templates/RecoverPassword';
 import SignUp from './templates/SignUp';
 
@@ -32,6 +33,14 @@ export const routes = createBrowserRouter([
         element: (
             <RequireAuth>
                 <Home />
+            </RequireAuth>
+        ),
+    },
+    {
+        path: '/history',
+        element: (
+            <RequireAuth>
+                <QuizHistory />
             </RequireAuth>
         ),
     },
