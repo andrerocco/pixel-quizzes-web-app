@@ -16,6 +16,10 @@ function Home() {
     const [quizzes, setQuizzes] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
+    const [searchValue, setSearchValue] = useState('');
+
+    // (ComponentDidMount)
+    // Fetches the data from the API
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true); // Sets the loading state to true before fetching the data
@@ -33,6 +37,20 @@ function Home() {
         };
         fetchData();
     }, []);
+
+    // Filters the quizzes based on the search value
+    useEffect(() => {
+        console.log(searchValue);
+
+        async function fetchSearchResults() {
+            const searchResults = await axios.get(
+                `https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${searchValue}`,
+            );
+            setQuizzes(searchResults.data);
+        }
+
+        fetchSearchResults();
+    }, [searchValue]);
 
     function handleFilterClick(value) {
         console.log(value);
@@ -55,7 +73,7 @@ function Home() {
                     <SearchField
                         placeholder="Pesquisar quiz"
                         style={{ width: '404px' }}
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => setSearchValue(e.target.value)}
                     />
                 </div>
             </nav>
