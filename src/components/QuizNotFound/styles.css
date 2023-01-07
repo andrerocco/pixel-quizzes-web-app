@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    animation: fade-in 0.25s ease-in-out;
 }
 
 .QuizNotFoundWrapper img {
@@ -37,4 +39,13 @@
     text-align: center;
 
     color: #78746d;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
