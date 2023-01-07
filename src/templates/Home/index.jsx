@@ -48,6 +48,7 @@ function Home() {
     useEffect(() => {
         async function fetchSearchResults() {
             setLoading(true); // Sets the loading state to true before fetching the data
+            console.log(debouncedSearch);
 
             const searchResults = await axios
                 .get(`https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${debouncedSearch}`)
@@ -66,7 +67,7 @@ function Home() {
     }, [debouncedSearch, allQuizzes]);
 
     function handleFilterClick(value) {
-        console.log(value);
+        setSearchValue(value.replace('#', ''));
     }
 
     return (
@@ -86,6 +87,7 @@ function Home() {
                     <SearchField
                         placeholder="Pesquisar quiz"
                         style={{ width: '404px' }}
+                        value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                     />
                 </div>
