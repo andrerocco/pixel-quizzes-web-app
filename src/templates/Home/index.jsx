@@ -10,6 +10,7 @@ import { WelcomeTitle } from '../../components/WelcomeTitle';
 import { DropdownButton } from '../../components/Dropdown/DropdownButton';
 import { DropdownItem } from '../../components/Dropdown/DropdownItem';
 import { LoadingBlock } from '../../components/LoadingBlock';
+import { QuizNotFound } from '../../components/QuizNotFound';
 
 function Home() {
     /* eslint-disable no-unused-vars */
@@ -20,7 +21,7 @@ function Home() {
     const [isLoading, setLoading] = useState(true);
 
     const [searchValue, setSearchValue] = useState('');
-    const debouncedSearch = useDebounce(searchValue, 500);
+    const debouncedSearch = useDebounce(searchValue, 300);
 
     // (ComponentDidMount)
     // Fetches the data from the API
@@ -45,9 +46,9 @@ function Home() {
 
     // Filters the quizzes based on the search value
     useEffect(() => {
-        setLoading(true); // Sets the loading state to true before fetching the data
-
         async function fetchSearchResults() {
+            setLoading(true); // Sets the loading state to true before fetching the data
+
             const searchResults = await axios
                 .get(`https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${debouncedSearch}`)
                 .then((response) => response.data)
@@ -61,7 +62,6 @@ function Home() {
             fetchSearchResults();
         } else {
             setQuizzes(allQuizzes);
-            setLoading(false);
         }
     }, [debouncedSearch, allQuizzes]);
 
@@ -92,7 +92,11 @@ function Home() {
             </nav>
             <LoadingBlock loadingStatus={isLoading} id="home-content">
                 {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
-                {quizzes.length <= 0 && <p>Nenhum post encontrado</p>}
+                {quizzes.length <= 0 && (
+                    <QuizNotFound message="Quiz não encontrado">
+                        Não encontramos nenhum quiz. Tente procurar usando palavras chaves diferentes...
+                    </QuizNotFound>
+                )}
             </LoadingBlock>
         </div>
     );
