@@ -1,13 +1,32 @@
 import './styles.css';
 import P from 'prop-types';
 
-export const QuizCard = ({ cardImage, difficulty, title, description, onClick, hoverCursor }) => {
+export const QuizCard = ({
+    cardImage,
+    difficulty,
+    title,
+    description,
+    isAnswered,
+    answeredDate,
+    questionsCount,
+    correctAnswersCount,
+    onClick,
+    hoverCursor,
+}) => {
     return (
         <div className="QuizCardWrapper" onClick={onClick} style={{ cursor: hoverCursor }}>
             <div className="card-image" style={{ backgroundImage: `url(${cardImage})` }}>
                 <h6 className="quiz-difficulty">{difficulty.toUpperCase()}</h6>
             </div>
             <div className="card-information">
+                {isAnswered && (
+                    <div className="card-answered-details">
+                        <p className="answered-correct-count">
+                            Você acertou {correctAnswersCount} de {questionsCount}
+                        </p>
+                        <p className="answered-date">{answeredDate}</p>
+                    </div>
+                )}
                 <h3>{title}</h3>
                 <p>{description}</p>
             </div>
@@ -19,6 +38,10 @@ QuizCard.propTypes = {
     cardImage: P.string.isRequired,
     difficulty: P.string.isRequired,
     title: P.string.isRequired,
+    isAnswered: P.bool.isRequired,
+    answeredDate: P.string,
+    questionsCount: P.number,
+    correctAnswersCount: P.number,
     description: P.string,
     onClick: P.func,
     hoverCursor: P.string,

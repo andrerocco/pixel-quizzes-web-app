@@ -39,6 +39,28 @@
     padding: 16px 16px 8px 16px;
 }
 
+.QuizCardWrapper .card-information .card-answered-details {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 4px;
+}
+
+.QuizCardWrapper .card-information .card-answered-details .answered-correct-count {
+    color: #5ba092;
+}
+
+.QuizCardWrapper .card-information .card-answered-details .answered-date {
+    color: #78746d;
+}
+
 .QuizCardWrapper .card-information h3 {
     font-style: normal;
     font-weight: 500;
