@@ -7,10 +7,29 @@ export const reducer = (state, action) => {
                 data: { id, data: questions },
             } = action.payload;
 
-            return { ...state, quiz_active: true, quiz_id: id, current_question: 0, questions: questions };
+            return {
+                ...state,
+                quiz_active: true,
+                quiz_id: id,
+                current_question_index: 0,
+                current_question: questions[0],
+                quiz_questions: questions,
+            };
         }
         case types.DEACTIVATE_QUIZ: {
-            return { ...state, quiz_active: false, quiz_id: null, current_question: undefined, questions: [] };
+            return {
+                ...state,
+                quiz_active: false,
+                quiz_id: null,
+                current_question: {
+                    id: undefined,
+                    banner_image: undefined,
+                    question_text: undefined,
+                    correct_answer_index: undefined,
+                    answers: [],
+                },
+                quiz_questions: [],
+            };
         }
     }
 
