@@ -1,0 +1,78 @@
+.QuizDetailsWrapper {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.QuizDetailsWrapper #previous-button {
+    position: absolute;
+    left: 5%;
+    top: 36px;
+}
+
+.QuizDetailsWrapper #quiz-details {
+    width: 40vw;
+    height: min-content;
+
+    animation: fade-in 0.25s ease-in-out;
+}
+
+.QuizDetailsWrapper #quiz-details h1 {
+    width: fit-content;
+    height: min-content;
+
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 105%;
+    color: #3c3a36;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-bottom: 24px;
+}
+
+.QuizDetailsWrapper #quiz-details #difficulty-label {
+    width: 100%;
+    height: min-content;
+    margin-top: 4px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.QuizDetailsWrapper #quiz-details h3 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #3c3a36;
+
+    margin-top: 24px;
+}
+
+.QuizDetailsWrapper #quiz-details p {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #3c3a36;
+
+    margin-top: 4px;
+}
+
+.QuizDetailsWrapper #quiz-details #start-quiz-button {
+    width: 100%;
+    height: min-content;
+    margin-top: 28px;
+}
