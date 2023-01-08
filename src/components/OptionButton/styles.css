@@ -1,0 +1,39 @@
+.OptionButtonWrapper input[type='radio'] {
+    display: none;
+}
+
+.OptionButtonWrapper input[type='radio'] + label {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.5px;
+    color: #3c3a36;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    padding: 16px 24px;
+    border-radius: 8px;
+    border: 1px solid #bebab3;
+    background-color: #ffffff;
+
+    transition: all 0.1s ease-in-out;
+}
+
+.OptionButtonWrapper input[type='radio'] + label:hover {
+    background-color: #f8f8f8;
+}
+
+.OptionButtonWrapper #right-answer {
+    background-color: #deece9;
+    border: 1px solid #5ba092;
+}
+
+.OptionButtonWrapper #wrong-answer {
+    background-color: #fcdbdb;
+    border: 1px solid #ef4949;
+}
