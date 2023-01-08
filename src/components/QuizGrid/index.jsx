@@ -3,7 +3,7 @@ import P from 'prop-types';
 // Components
 import { QuizCard } from '../QuizCard';
 
-export const QuizGrid = ({ quizzes }) => {
+export const QuizGrid = ({ quizzes, onQuizClick }) => {
     function convertDateFormat(date) {
         if (!date) return null;
 
@@ -26,6 +26,7 @@ export const QuizGrid = ({ quizzes }) => {
                         questionsCount={quiz.questions_count}
                         correctAnswersCount={quiz.correct_answers_count}
                         hoverCursor="pointer"
+                        onClick={() => onQuizClick(quiz.id)}
                     />
                 );
             })}
@@ -35,4 +36,5 @@ export const QuizGrid = ({ quizzes }) => {
 
 QuizGrid.propTypes = {
     quizzes: P.array,
+    onQuizClick: P.func,
 };

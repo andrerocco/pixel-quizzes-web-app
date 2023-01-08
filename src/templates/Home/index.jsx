@@ -75,7 +75,7 @@ function Home() {
 
     function handleQuizClick(id) {
         console.log(id);
-        navigate(`/quiz/details/${id}`);
+        navigate(`/quiz/${id}/details`);
     }
 
     return (
@@ -102,14 +102,16 @@ function Home() {
                     />
                 </div>
             </nav>
-            <LoadingBlock loadingStatus={isLoading} id="home-content">
-                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} onQuizClick={(id) => handleQuizClick(id)} />}
-                {quizzes.length <= 0 && (
-                    <QuizNotFound message="Quiz não encontrado">
-                        Não encontramos nenhum quiz. Tente procurar usando palavras chaves diferentes...
-                    </QuizNotFound>
-                )}
-            </LoadingBlock>
+            <div id="home-content-wrapper">
+                <LoadingBlock id="loading-block" loadingStatus={isLoading}>
+                    {quizzes.length > 0 && <QuizGrid quizzes={quizzes} onQuizClick={(id) => handleQuizClick(id)} />}
+                    {quizzes.length <= 0 && (
+                        <QuizNotFound message="Quiz não encontrado">
+                            Não encontramos nenhum quiz. Tente procurar usando palavras chaves diferentes...
+                        </QuizNotFound>
+                    )}
+                </LoadingBlock>
+            </div>
         </div>
     );
 }

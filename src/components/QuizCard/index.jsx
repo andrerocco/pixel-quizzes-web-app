@@ -1,5 +1,6 @@
 import './styles.css';
 import P from 'prop-types';
+import { DifficultyLabel } from '../DifficultyLabel';
 
 export const QuizCard = ({
     cardImage,
@@ -16,7 +17,7 @@ export const QuizCard = ({
     return (
         <div className="QuizCardWrapper" onClick={onClick} style={{ cursor: hoverCursor }}>
             <div className="card-image" style={{ backgroundImage: `url(${cardImage})` }}>
-                <h6 className="quiz-difficulty">{difficulty.toUpperCase()}</h6>
+                <DifficultyLabel label={difficulty} difficulty={difficulty} />
             </div>
             <div className="card-information">
                 {isAnswered && (
