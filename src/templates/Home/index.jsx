@@ -51,7 +51,6 @@ function Home() {
     useEffect(() => {
         async function fetchSearchResults() {
             setLoading(true); // Sets the loading state to true before fetching the data
-            console.log(debouncedSearch);
 
             const searchResults = await axios
                 .get(`https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${debouncedSearch}`)
@@ -74,7 +73,6 @@ function Home() {
     }
 
     function handleQuizClick(id) {
-        console.log(id);
         navigate(`/quiz/${id}/details`);
     }
 
@@ -103,7 +101,7 @@ function Home() {
                 </div>
             </nav>
             <div id="home-content-wrapper">
-                <LoadingBlock id="loading-block" loadingStatus={isLoading}>
+                <LoadingBlock loadingStatus={isLoading}>
                     {quizzes.length > 0 && <QuizGrid quizzes={quizzes} onQuizClick={(id) => handleQuizClick(id)} />}
                     {quizzes.length <= 0 && (
                         <QuizNotFound message="Quiz não encontrado">
