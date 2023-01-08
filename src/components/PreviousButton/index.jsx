@@ -7,7 +7,7 @@ export const PreviousButton = ({ id, className, onClick, buttonSrc, imgAltText, 
     return (
         <a id={id} className={`PreviousButtonWrapper ` + className} onClick={onClick} {...props}>
             <img
-                className="previous-icon no-drag"
+                className="previous-icon no-drag no-select"
                 src={buttonSrc ? buttonSrc : previousButton}
                 alt={imgAltText ? imgAltText : 'Go back'}
             />
