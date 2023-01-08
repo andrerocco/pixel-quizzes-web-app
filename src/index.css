@@ -28,14 +28,28 @@ body {
 }
 
 #header-navbar {
-    width: auto;
+    width: 80vw;
     height: 120px;
+    padding: 0px 10vw;
 
-    padding: 0px 148px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    background-color: white;
     border-bottom: 1px solid #bebab3;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
