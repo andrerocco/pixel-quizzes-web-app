@@ -1,6 +1,8 @@
 export const data = {
     quiz_active: false,
+    quiz_finished: false,
     quiz_id: null,
+    score: 0,
     current_question_index: 0,
     current_question: {
         id: undefined,
