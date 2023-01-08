@@ -1,9 +1,13 @@
+.LoadingIconWrapper {
+    width: min-content;
+    height: min-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .LoadingIconWrapper img {
     width: 40px;
     height: 40px;
-    margin-top: 50px;
-
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
 }

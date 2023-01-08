@@ -3,9 +3,9 @@ import P from 'prop-types';
 // Assets
 import loadingIcon from '../../assets/icons/loading-animation.svg';
 
-export const LoadingBlock = ({ loadingStatus, children, ...props }) => {
+export const LoadingBlock = ({ loadingStatus, className, children, ...props }) => {
     return loadingStatus ? (
-        <div className="LoadingIconWrapper">
+        <div className={`LoadingIconWrapper ` + className} {...props}>
             <img src={loadingIcon} alt="Loading..." />
         </div>
     ) : (
@@ -15,5 +15,6 @@ export const LoadingBlock = ({ loadingStatus, children, ...props }) => {
 
 LoadingBlock.propTypes = {
     loadingStatus: P.bool,
+    className: P.string,
     children: P.node,
 };
