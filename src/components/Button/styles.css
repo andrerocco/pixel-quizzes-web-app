@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,500&display=swap');
 
+.ButtonWrapper {
+    width: 100%;
+    height: min-content;
+}
+
 .ButtonWrapper button {
     width: 100%;
     height: 56px;
