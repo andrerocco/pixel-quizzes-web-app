@@ -19,7 +19,7 @@ export const OptionButton = ({ children, index, isAnswer, isActive = true, bulle
                 }}
                 disabled={!isActive}
             />
-            <label htmlFor={`option-${index}`} id={answered && (isAnswer ? 'right-answer' : 'wrong-answer')}>
+            <label htmlFor={`option-${index}`} id={answered ? (isAnswer ? 'right-answer' : 'wrong-answer') : ''}>
                 {bulletType === 'number' && `${index + 1}. ${children}`}
                 {bulletType === 'alphabet' && `${alphabet[index]}. ${children}`}
                 {bulletType === 'none' && children}
@@ -31,7 +31,6 @@ export const OptionButton = ({ children, index, isAnswer, isActive = true, bulle
 OptionButton.propTypes = {
     children: P.string,
     index: P.number.isRequired,
-    optionText: P.string.isRequired,
     bulletType: P.oneOf(['number', 'alphabet', 'none']),
     isAnswer: P.oneOf([true, false]),
     isActive: P.oneOf([true, false]),
