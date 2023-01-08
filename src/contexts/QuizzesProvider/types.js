@@ -1,0 +1,2 @@
+export const ACTIVATE_QUIZ = 'ACTIVATE_QUIZ';
+export const DEACTIVATE_QUIZ = 'DEACTIVATE_QUIZ';
