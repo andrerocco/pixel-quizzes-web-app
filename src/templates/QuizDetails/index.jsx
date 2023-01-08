@@ -11,6 +11,7 @@ import { Button } from '../../components/Button';
 import quizDetailsIllustration from '../../assets/illustrations/quiz-details-illustration.svg';
 // Contexts
 import { QuizContext } from '../../contexts/QuizzesProvider/context';
+import { activateQuiz } from '../../contexts/QuizzesProvider/actions';
 
 function QuizDetails() {
     /* eslint-disable no-unused-vars */
@@ -37,8 +38,12 @@ function QuizDetails() {
         fetchQuizDetails(quizId);
     }, [quizId]);
 
-    function handleStartQuiz() {
-        console.log(quizId);
+    async function handleStartQuiz() {
+        await activateQuiz(quizId)(quizDispatch).then(() => {
+            setTimeout(() => {
+                navigate(`/quiz/${quizId}/questions/`);
+            }, 5);
+        });
     }
 
     return (
@@ -57,7 +62,7 @@ function QuizDetails() {
                         <h3>Quantidade de perguntas</h3>
                         <p>{quizDetails.questions_count}</p>
                         <div id="start-quiz-button">
-                            <Button label="Fazer tentativa" onClick={() => handleStartQuiz()}></Button>
+                            <Button label="Fazer tentativa" onPress={() => handleStartQuiz()}></Button>
                         </div>
                     </div>
                 )}

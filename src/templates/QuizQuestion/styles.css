@@ -1,0 +1,10 @@
+.QuizQuestionWrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.QuizQuestionWrapper #previous-button {
+    position: absolute;
+    left: 5%;
+    top: 36px;
+}
