@@ -4,20 +4,19 @@ import { Navigate } from 'react-router-dom';
 // Contexts
 import { QuizContext } from '../contexts/QuizzesProvider/context';
 
-function RequireQuizStart({ children }) {
-    const {
-        quizState: { quiz_active: quizActive },
-    } = useContext(QuizContext);
+function RequireQuizCondition({ children, condition }) {
+    const { quizState } = useContext(QuizContext);
+    const quizCondition = quizState[condition];
 
-    // User needs to click on "Start Quiz" in the quiz details page
-    if (!quizActive) {
+    if (!quizCondition) {
         return <Navigate to="/" />;
     }
     return children;
 }
 
-RequireQuizStart.propTypes = {
+RequireQuizCondition.propTypes = {
     children: P.oneOfType([P.string, P.element, P.node]).isRequired,
+    condition: P.string.isRequired,
 };
 
-export default RequireQuizStart;
+export default RequireQuizCondition;
