@@ -42,7 +42,7 @@ function QuizDetails() {
         await activateQuiz(quizId)(quizDispatch).then(() => {
             setTimeout(() => {
                 navigate(`/quiz/${quizId}/questions/`);
-            }, 5);
+            }, 20);
         });
     }
 
@@ -62,7 +62,7 @@ function QuizDetails() {
                         <h3>Quantidade de perguntas</h3>
                         <p>{quizDetails.questions_count}</p>
                         <div id="start-quiz-button">
-                            <Button label="Fazer tentativa" onPress={() => handleStartQuiz()}></Button>
+                            <Button label="Fazer tentativa" onClick={() => handleStartQuiz()}></Button>
                         </div>
                     </div>
                 )}

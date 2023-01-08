@@ -1,49 +1,114 @@
 import './styles.css';
 import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // Components
+import { OptionButtonsList } from '../../components/OptionButtonsList';
+import { LoadingBlock } from '../../components/LoadingBlock';
 import { PreviousButton } from '../../components/PreviousButton';
 // Contexts
 import { QuizContext } from '../../contexts/QuizzesProvider/context';
 import { deactivateQuiz } from '../../contexts/QuizzesProvider/actions';
-import { LoadingBlock } from '../../components/LoadingBlock';
+import { Button } from '../../components/Button';
 
 function QuizQuestion() {
     /* eslint-disable no-unused-vars */
-    const [isLoading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
+    // Component state variables
+    const [isLoading, setLoading] = useState(true);
+    const [nextButtonVisible, setNextButtonVisible] = useState(false);
+
+    // Quiz context variables
     const quizContext = useContext(QuizContext);
     const { quizState, quizDispatch } = quizContext;
 
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(quizState.current_question);
-    const [questionsAmount, setQuestionsAmount] = useState(quizState.questions.length);
-    const [questionText, setQuestionText] = useState(quizState.questions[currentQuestionIndex].question_text);
-    const [questionImage, setQuestionImage] = useState(quizState.questions[currentQuestionIndex].banner_image);
-    const [questionAnswers, setQuestionAnswers] = useState(quizState.questions[currentQuestionIndex].answers);
+    // Quiz question state variables
+    const [questionsAmount, setQuestionsAmount] = useState(0);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [questionText, setQuestionText] = useState('');
+    const [questionBannerImage, setQuestionBannerImage] = useState('');
+    const [questionAnswers, setQuestionAnswers] = useState([]);
+    const [questionCorrectIndex, setQuestionCorrectIndex] = useState(undefined);
 
     useEffect(() => {
-        setCurrentQuestionIndex(quizState.current_question);
-        setQuestionsAmount(quizState.questions.length);
-        setQuestionText(quizState.questions[currentQuestionIndex].question_text);
-        setQuestionImage(quizState.questions[currentQuestionIndex].banner_image);
-        setQuestionAnswers(quizState.questions[currentQuestionIndex].answers);
+        try {
+            // If the quiz is finished, the user is redirected to the quiz results page
+            if (quizState.quiz_finished) {
+                navigate('/quiz-results');
+            }
+            setQuestionsAmount(quizState.quiz_questions.length);
+            setCurrentQuestionIndex(quizState.current_question_index);
+            setQuestionText(quizState.current_question.question_text);
+            setQuestionBannerImage(quizState.current_question.banner_image);
+            setQuestionAnswers(quizState.current_question.answers);
+            setQuestionCorrectIndex(quizState.current_question.correct_answer_index);
 
-        setLoading(false);
-    }, [quizState, currentQuestionIndex]);
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(true);
+        }
+    }, [quizState, navigate]);
 
     function handleGoBack() {
         // If the user clicks on the "go back" button, the quiz is deactivated
         deactivateQuiz()(quizDispatch);
     }
 
+    function handleAnswer() {
+        // If the user clicks on an answer, the next button is shown
+        setNextButtonVisible(true);
+    }
+
+    function handleRightAnswer() {
+        // If the user clicks on a right answer, the quiz score is incremented
+        quizDispatch({ type: 'INCREMENT_SCORE' });
+    }
+
+    function handleWrongAnswer() {
+        //pass
+    }
+
+    function handleNextQuestion() {
+        setNextButtonVisible(false);
+        setLoading(true); // Sets the loading that may be unset when the useEffect is triggered
+        quizDispatch({ type: 'NEXT_QUESTION' });
+    }
+
     return (
         <div className="QuizQuestionWrapper">
             <PreviousButton id="previous-button" onClick={() => handleGoBack()} />
             <LoadingBlock loadingStatus={isLoading}>
-                <p>
-                    {currentQuestionIndex + 1} de {questionsAmount}
-                </p>
-                <h2>{questionText}</h2>
-                <img src={questionImage} alt="Question image" />
+                {!isLoading && (
+                    <div id="question-container">
+                        <p id="question-number">
+                            {currentQuestionIndex + 1} de {questionsAmount}
+                        </p>
+                        <h2 id="question-text">{questionText}</h2>
+                        <div id="banner-image" style={{ backgroundImage: `url(${questionBannerImage})` }}></div>
+                        <OptionButtonsList
+                            optionsList={questionAnswers}
+                            correctAnswer={questionCorrectIndex}
+                            bulletType="alphabet"
+                            listGap={'20px'}
+                            id="option-buttons-list"
+                            onAnswer={() => handleAnswer()}
+                            onRightAnswer={() => handleRightAnswer()}
+                            onWrongAnswer={() => handleWrongAnswer()}
+                        />
+                        <Button
+                            label="Continuar"
+                            type="button"
+                            onClick={() => handleNextQuestion()}
+                            style={{
+                                opacity: nextButtonVisible ? '1' : '0',
+                                pointerEvents: nextButtonVisible ? 'all' : 'none',
+                                Animation: 'fade-in 0.1s ease-in-out',
+                            }}
+                            id="next-button"
+                        />
+                    </div>
+                )}
             </LoadingBlock>
         </div>
     );

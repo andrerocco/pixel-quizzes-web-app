@@ -1,10 +1,75 @@
 .QuizQuestionWrapper {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .QuizQuestionWrapper #previous-button {
     position: absolute;
     left: 5%;
     top: 36px;
+}
+
+.QuizQuestionWrapper #question-container {
+    width: min-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    animation: fade-in 0.25s ease-in-out;
+}
+
+.QuizQuestionWrapper #question-number {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.5px;
+    color: #3c3a36;
+
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.QuizQuestionWrapper #question-text {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #3c3a36;
+
+    max-width: 80%;
+    word-break: normal;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.QuizQuestionWrapper #banner-image {
+    width: 552px;
+    height: 308px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: 1px solid #bebab3;
+    border-radius: 8px;
+}
+
+.QuizQuestionWrapper #option-buttons-list {
+    margin: 20px 0;
+}
+
+.QuizQuestionWrapper #next-button {
+    margin-top: 20px;
 }
