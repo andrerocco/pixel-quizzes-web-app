@@ -1,15 +1,18 @@
 import { createBrowserRouter } from 'react-router-dom';
-import RequireAuth from './components/RequireAuth';
-import RequireQuizStart from './components/RequireQuizStart';
+// Contexts
 import { QuizProvider } from './contexts/QuizzesProvider';
-// Páginas
+// Components
 import Home from './templates/Home';
 import Login from './templates/Login';
 import QuizDetails from './templates/QuizDetails';
 import QuizHistory from './templates/QuizHistory';
 import QuizQuestion from './templates/QuizQuestion';
+import QuizResults from './templates/QuizResults';
 import RecoverPassword from './templates/RecoverPassword';
 import SignUp from './templates/SignUp';
+// Higher Order Components
+import RequireAuth from './components/RequireAuth';
+import RequireQuizCondition from './components/RequireQuizCondition';
 
 export const routes = createBrowserRouter([
     {
@@ -63,9 +66,21 @@ export const routes = createBrowserRouter([
         element: (
             <RequireAuth>
                 <QuizProvider>
-                    <RequireQuizStart>
+                    <RequireQuizCondition condition="quiz_active">
                         <QuizQuestion />
-                    </RequireQuizStart>
+                    </RequireQuizCondition>
+                </QuizProvider>
+            </RequireAuth>
+        ),
+    },
+    {
+        path: '/quiz/:id/results/',
+        element: (
+            <RequireAuth>
+                <QuizProvider>
+                    <RequireQuizCondition condition="quiz_finished">
+                        <QuizResults />
+                    </RequireQuizCondition>
                 </QuizProvider>
             </RequireAuth>
         ),

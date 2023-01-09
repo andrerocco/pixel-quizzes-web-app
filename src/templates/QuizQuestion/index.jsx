@@ -1,6 +1,6 @@
 import './styles.css';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // Components
 import { OptionButtonsList } from '../../components/OptionButtonsList';
 import { LoadingBlock } from '../../components/LoadingBlock';
@@ -13,6 +13,7 @@ import { Button } from '../../components/Button';
 function QuizQuestion() {
     /* eslint-disable no-unused-vars */
     const navigate = useNavigate();
+    const { id } = useParams();
 
     // Component state variables
     const [isLoading, setLoading] = useState(true);
@@ -32,10 +33,6 @@ function QuizQuestion() {
 
     useEffect(() => {
         try {
-            // If the quiz is finished, the user is redirected to the quiz results page
-            if (quizState.quiz_finished) {
-                navigate('/quiz-results');
-            }
             setQuestionsAmount(quizState.quiz_questions.length);
             setCurrentQuestionIndex(quizState.current_question_index);
             setQuestionText(quizState.current_question.question_text);
@@ -49,6 +46,13 @@ function QuizQuestion() {
             setLoading(true);
         }
     }, [quizState, navigate]);
+
+    useEffect(() => {
+        // If the quiz is finished, the user is redirected to the quiz results page
+        if (quizState.quiz_finished) {
+            navigate(`/quiz/${id}/results/`);
+        }
+    }, [quizState, navigate, id]);
 
     function handleGoBack() {
         // If the user clicks on the "go back" button, the quiz is deactivated
