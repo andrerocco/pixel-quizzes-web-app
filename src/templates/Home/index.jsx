@@ -56,7 +56,7 @@ function Home() {
                 .get(`https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes?q=${debouncedSearch}`)
                 .then((response) => response.data)
                 .catch((error) => console.log(error));
-            setQuizzes(searchResults);
+            setQuizzes(searchResults.filter((quiz) => quiz.is_answered === false));
 
             setLoading(false); // Sets the loading state to false when the data is fetched
         }
