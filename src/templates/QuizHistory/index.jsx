@@ -31,6 +31,10 @@ function QuizHistory() {
         fetchData();
     }, []);
 
+    function handleQuizClick(id) {
+        navigate(`/quiz/${id}/details`);
+    }
+
     return (
         <div className="QuizHistoryWrapper">
             <div id="header-navbar">
@@ -39,9 +43,11 @@ function QuizHistory() {
                     <h1>Seu histórico</h1>
                 </div>
             </div>
-            <LoadingBlock loadingStatus={isLoading} className="page-content">
-                {quizzes.length > 0 && <QuizGrid quizzes={quizzes} />}
-            </LoadingBlock>
+            <div id="history-content-wrapper">
+                <LoadingBlock loadingStatus={isLoading}>
+                    {quizzes.length > 0 && <QuizGrid quizzes={quizzes} onQuizClick={(id) => handleQuizClick(id)} />}
+                </LoadingBlock>
+            </div>
         </div>
     );
 }
