@@ -16,3 +16,30 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.RecoverPasswordWrapper #recover-password-form h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+
+    font-size: 56px;
+    font-weight: 700;
+    color: #3c3a36;
+}
+
+@media screen and (max-width: 600px) {
+    .RecoverPasswordWrapper #recover-password-form {
+        width: 85vw;
+    }
+
+    .RecoverPasswordWrapper #recover-password-form h1 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .RecoverPasswordWrapper #recover-password-form h1 {
+        font-size: 28px;
+    }
+}

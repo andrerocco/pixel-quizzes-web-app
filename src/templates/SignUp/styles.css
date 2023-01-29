@@ -38,6 +38,23 @@
     font-size: 16px;
     line-height: 26px;
     color: #78746d;
+    text-align: center;
 
     margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .SignUpWrapper #sign-up-form {
+        width: 85vw;
+    }
+
+    .SignUpWrapper #sign-up-form #sign-up-title h1 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .SignUpWrapper #sign-up-form #sign-up-title h1 {
+        font-size: 28px;
+    }
 }
