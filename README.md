@@ -12,6 +12,6 @@ The app is built with **ReactJS**, uses the **React Router DOM** library for rou
 
 Clone this repository and run the following commands in the project directory:
 
-`npm install && npm start`
+`npm install; npm start`
 
 This will run the app in the development mode. Open http://localhost:3000 to view it in your browser.
