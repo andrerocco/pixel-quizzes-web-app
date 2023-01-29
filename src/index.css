@@ -53,3 +53,10 @@ body {
         opacity: 1;
     }
 }
+
+@media screen and (max-width: 1300px) {
+    #header-navbar {
+        width: 94vw;
+        padding: 0px 3vw;
+    }
+}

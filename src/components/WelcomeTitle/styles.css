@@ -23,3 +23,13 @@
 
     color: #3c3a36;
 }
+
+@media screen and (max-width: 1300px) {
+    .WelcomeTitleWrapper p {
+        font-size: 18px;
+    }
+
+    .WelcomeTitleWrapper h1 {
+        font-size: 28px;
+    }
+}

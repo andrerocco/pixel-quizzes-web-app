@@ -5,3 +5,10 @@
     grid-column-gap: 40px;
     grid-row-gap: 40px;
 }
+
+@media screen and (max-width: 1300px) {
+    .QuizGridWrapper {
+        grid-template-columns: min-content;
+        grid-row-gap: 24px;
+    }
+}
