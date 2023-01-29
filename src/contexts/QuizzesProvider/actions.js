@@ -16,3 +16,11 @@ export const activateQuiz = (quizId) => async (dispatch) => {
 export const deactivateQuiz = () => (dispatch) => {
     dispatch({ type: types.DEACTIVATE_QUIZ });
 };
+
+export const incrementScore = () => (dispatch) => {
+    dispatch({ type: types.INCREMENT_SCORE });
+};
+
+export const nextQuestion = () => (dispatch) => {
+    dispatch({ type: types.NEXT_QUESTION });
+};

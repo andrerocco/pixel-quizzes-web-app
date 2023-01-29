@@ -7,7 +7,7 @@ import { LoadingBlock } from '../../components/LoadingBlock';
 import { PreviousButton } from '../../components/PreviousButton';
 // Contexts
 import { QuizContext } from '../../contexts/QuizzesProvider/context';
-import { deactivateQuiz } from '../../contexts/QuizzesProvider/actions';
+import { deactivateQuiz, incrementScore, nextQuestion } from '../../contexts/QuizzesProvider/actions';
 import { Button } from '../../components/Button';
 
 function QuizQuestion() {
@@ -66,7 +66,7 @@ function QuizQuestion() {
 
     function handleRightAnswer() {
         // If the user clicks on a right answer, the quiz score is incremented
-        quizDispatch({ type: 'INCREMENT_SCORE' });
+        incrementScore()(quizDispatch);
     }
 
     function handleWrongAnswer() {
@@ -76,7 +76,7 @@ function QuizQuestion() {
     function handleNextQuestion() {
         setNextButtonVisible(false);
         setLoading(true); // Sets the loading that may be unset when the useEffect is triggered
-        quizDispatch({ type: 'NEXT_QUESTION' });
+        nextQuestion()(quizDispatch);
     }
 
     return (
