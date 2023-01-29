@@ -22,7 +22,7 @@ function Login() {
     const redirectTo = location.state?.path || '/';
 
     const handleLogin = (event) => {
-        event.preventDefault(); // Prevents the page from reloading
+        event?.preventDefault(); // Prevents the page from reloading
 
         auth.login({ username: email, password: password });
         navigate(redirectTo, { replace: true }); // Replace: true prevents the user from going back to the login page by pressing the back button
@@ -35,7 +35,7 @@ function Login() {
                 <img src={quizzesTypography} alt="Pixel Quizzes Typography" id="pixel-quizzes-typography" />
             </div>
             <form onSubmit={(e) => handleLogin(e)} id="login-form">
-                <h1>Entrar</h1>
+                <h1 className="no-select">Entrar</h1>
                 <TextInput
                     type="email"
                     id="email-input"

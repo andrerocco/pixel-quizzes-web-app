@@ -1,11 +1,11 @@
 import './styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import P from 'prop-types';
 // Components
 import { TextInput } from '../TextInput';
 import VisibilityIcon from './VisibilityIcon';
 
-export const PasswordInput = ({ placeholder, onChange }) => {
+export const PasswordInput = ({ placeholder, onChange, onEnter, required = true }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const changeVisibility = (event) => {
@@ -13,9 +13,27 @@ export const PasswordInput = ({ placeholder, onChange }) => {
         setIsVisible(!isVisible);
     };
 
+    useEffect(() => {
+        const onKeyPressed = (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                onEnter?.();
+            }
+        };
+        document.addEventListener('keydown', onKeyPressed);
+        return () => {
+            document.removeEventListener('keydown', onKeyPressed);
+        };
+    }, [onEnter]);
+
     return (
         <div className="PasswordInputWrapper">
-            <TextInput type={isVisible ? 'text' : 'password'} placeholder={placeholder} onChange={onChange} />
+            <TextInput
+                type={isVisible ? 'text' : 'password'}
+                placeholder={placeholder}
+                onChange={onChange}
+                required={required}
+            />
             <VisibilityIcon visibilityStatus={isVisible} onClick={(e) => changeVisibility(e)} fillColor={'#3C3A36'} />
         </div>
     );
@@ -24,4 +42,6 @@ export const PasswordInput = ({ placeholder, onChange }) => {
 PasswordInput.propTypes = {
     placeholder: P.string,
     onChange: P.func,
+    onEnter: P.func,
+    required: P.bool,
 };
