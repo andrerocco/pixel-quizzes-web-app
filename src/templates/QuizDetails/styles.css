@@ -31,12 +31,20 @@
     font-size: 40px;
     line-height: 105%;
     color: #3c3a36;
+    text-align: center;
 
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 
     margin-bottom: 24px;
+}
+
+.QuizDetailsWrapper #quiz-details img {
+    width: 100%;
+    max-height: 300px;
+    object-position: center;
+    object-fit: contain;
 }
 
 .QuizDetailsWrapper #quiz-details #difficulty-label {
@@ -75,4 +83,16 @@
     width: 100%;
     height: min-content;
     margin-top: 28px;
+}
+
+@media screen and (max-width: 1300px) {
+    .QuizDetailsWrapper #quiz-details {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .QuizDetailsWrapper #quiz-details {
+        width: 80vw;
+    }
 }

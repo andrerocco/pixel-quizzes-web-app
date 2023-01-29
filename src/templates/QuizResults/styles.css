@@ -62,3 +62,23 @@
 
     margin: 8px 0 70px 0;
 }
+
+@media screen and (max-width: 1300px) {
+    .QuizResultsWrapper #results-container {
+        width: 40vw;
+    }
+
+    .QuizResultsWrapper h1 {
+        margin: 4vh 0 4vh 0;
+    }
+
+    .QuizResultsWrapper p {
+        margin: 8px 0 5vh 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .QuizResultsWrapper #results-container {
+        width: 90vw;
+    }
+}

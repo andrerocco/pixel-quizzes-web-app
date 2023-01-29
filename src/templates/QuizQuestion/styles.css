@@ -73,3 +73,10 @@
 .QuizQuestionWrapper #next-button {
     margin-top: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    .QuizQuestionWrapper #banner-image {
+        width: 90vw;
+        aspect-ratio: 552 / 308;
+    }
+}
